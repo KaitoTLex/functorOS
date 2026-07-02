@@ -1,10 +1,19 @@
-{ pkgs, ... }:
+{
+  osConfig,
+  pkgs,
+  ...
+}:
 {
   imports = [ ./stylix.nix ];
   gtk = {
     enable = true;
+    gtk4.theme = null;
     iconTheme = {
-      name = "Papirus-Dark";
+      name = 
+        if (osConfig.stylix.polarity == "dark") then
+          "Papirus-Dark"
+        else
+          "Papirus-Light";
     };
   };
 }

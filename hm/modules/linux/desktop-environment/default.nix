@@ -5,8 +5,8 @@
 }:
 {
   imports = [
-    ./hyprland
     ./niri
+    ./dms-shell
     ./sway
     ./waybar
     ./swaync.nix

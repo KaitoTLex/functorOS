@@ -37,6 +37,16 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake/very-refactor";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dms-shell = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -77,11 +87,15 @@
     run0-sudo-shim = {
       url = "github:LordGrimmauld/run0-sudo-shim";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixathena = {
+      url = "git+https://forgejo.mit.edu/SIPB/nixathena.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -109,6 +123,8 @@
               # inputs.agenix.nixosModules.age
               inputs.musnix.nixosModules.musnix
               inputs.run0-sudo-shim.nixosModules.default
+              inputs.niri.nixosModules.niri
+              inputs.nixathena.nixosModules.default
               ./modules/default.nix
               ./overlays
               (
@@ -141,6 +157,8 @@
               inputs.spicetify.homeManagerModules.default
               # inputs.agenix.homeManagerModules.age
               inputs.onibotoke.homeManagerModules.default
+              inputs.dms-shell.homeModules.dank-material-shell
+              inputs.dms-shell.homeModules.niri
               ./hm/modules/default.nix
             ];
           };

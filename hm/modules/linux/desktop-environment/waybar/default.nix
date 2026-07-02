@@ -10,7 +10,7 @@ let
   theme = config.lib.stylix;
   palette = theme.colors;
   useSway = config.functorOS.desktop.sway.enable;
-  wsModuleName = if useSway then "sway/workspaces" else "hyprland/workspaces";
+  wsModuleName = if useSway then "sway/workspaces" else "niri/workspaces";
 in
 {
   options.functorOS.desktop.waybar = {
@@ -36,13 +36,7 @@ in
     programs.waybar = {
       enable = true;
       systemd.enable = true;
-      systemd.target =
-        if useSway then
-          "sway-session.target"
-        else if config.functorOS.desktop.hyprland.enable then
-          "hyprland-session.target"
-        else
-          "graphical-session.target";
+      systemd.target = if useSway then "sway-session.target" else "graphical-session.target";
       settings.mainBar = {
         name = "bar0";
         reload_style_on_change = true;

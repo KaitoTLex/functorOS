@@ -9,7 +9,7 @@
     # Alternatively, pin your own nixpkgs and set functorOS to follow it, as shown below.
 
     # nixpkgs.follows = "github:nixos/nixpkgs?ref=nixos-unstable";
-    # functorOS.url = "github:youwen5/functorOS";
+    # functorOS.url = "git+https://code.functor.systems/functor.systems/functorOS";
     # functorOS.inputs.nixpkgs.follows = "nixpkgs";
 
     # Either way, you should ensure that functorOS shares nixpkgs with your
@@ -92,7 +92,7 @@
             # settings for stateful data, like file locations and database versions
             # on your system were taken. It‘s perfectly fine and recommended to leave
             # this value at the release version of the first install of home-manager.
-            home.stateVersion = "25.05";
+            home.stateVersion = "26.05";
           };
       };
     in
@@ -158,7 +158,7 @@
               # this value at the release version of the first install of this system.
               # Before changing this value read the documentation for this option
               # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-              system.stateVersion = "24.05"; # Did you read the comment?
+              system.stateVersion = "26.05"; # Did you read the comment?
 
               # Other options such as
               # hardware.graphics.enable = true

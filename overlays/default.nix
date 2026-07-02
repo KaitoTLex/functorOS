@@ -13,8 +13,10 @@ in
     (final: prev: {
       nix-index-unwrapped = prev.nix-index-unwrapped.overrideAttrs (
         finalAttrs: prevAttrs: {
-          version = "0.1.11";
-          src = functorOSInputs.nix-index;
+          inherit (functorOSInputs.nix-index.packages.${pkgs.stdenv.hostPlatform.system}.default)
+            src
+            version
+            ;
 
           cargoDeps = prev.rustPlatform.fetchCargoVendor {
             inherit (finalAttrs) src;
@@ -22,8 +24,6 @@ in
           };
         }
       );
-
-      # hyprland = prev.stdenv.mkDerivation { inherit (prev.hyprland) pname version; };
     })
   ];
 }
