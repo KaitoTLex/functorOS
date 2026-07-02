@@ -38,7 +38,7 @@
     };
 
     nix-index-database = {
-      url = "github:youwen5/nix-index-database";
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -47,11 +47,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    agenix = {
-      url = "github:yaxitech/ragenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
+    # agenix = {
+    #   url = "github:yaxitech/ragenix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-utils.follows = "flake-utils";
+    # };
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
@@ -106,7 +106,7 @@
               inputs.home-manager.nixosModules.home-manager
               inputs.nixos-wsl.nixosModules.default
               inputs.stylix.nixosModules.stylix
-              inputs.agenix.nixosModules.age
+              # inputs.agenix.nixosModules.age
               inputs.musnix.nixosModules.musnix
               inputs.run0-sudo-shim.nixosModules.default
               ./modules/default.nix
@@ -126,7 +126,7 @@
                   ];
                   # instead of using ragenix from agenix which builds from
                   # source, use ragenix packaged in nixpkgs
-                  environment.systemPackages = [ pkgs.ragenix ];
+                  # environment.systemPackages = [ pkgs.ragenix ];
                 }
               )
             ];
@@ -139,7 +139,7 @@
             imports = [
               inputs.nix-index-database.homeModules.nix-index
               inputs.spicetify.homeManagerModules.default
-              inputs.agenix.homeManagerModules.age
+              # inputs.agenix.homeManagerModules.age
               inputs.onibotoke.homeManagerModules.default
               ./hm/modules/default.nix
             ];
